@@ -1,13 +1,13 @@
 {
   "name": "book",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "get book data, and find out the best",
+  "main": "book.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "async": "^1.5.0",
     "request": "^2.67.0"

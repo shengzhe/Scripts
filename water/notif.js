@@ -5,9 +5,9 @@ var db = new mongodb.Db('water',server,{safe:true});
 
 var documentName = 'nowater';
 var globalDococument = null
-var transporter = nodemailer.createTransport('smtps://madongchunqiu%40163.com:!23456789o@smtp.163.com');
+var transporter = nodemailer.createTransport('smtps://user%40163.com:pass@smtp.163.com');
 var mailOptions = {
-  from: 'Water Notifier<madongchunqiu@163.com>',
+  from: 'Water Notifier<user@163.com>',
   to: '',
   subject: '又要停水了......',
   text: '',
@@ -15,8 +15,8 @@ var mailOptions = {
 };
 
 var keywords = {
-  '雄楚':['madongchunqiu@gmail.com'],
-  '关西':['madongchunqiu@gmail.com']
+  '雄楚':['user@gmail.com'],
+  '关西':['user@gmail.com']
 }
 
 var closeDB = function() {

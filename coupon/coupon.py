@@ -2,11 +2,13 @@
 # -*- coding: UTF-8 -*-
 
 import sys
+import requests
 import datetime
 import re
-import requests
 from dateutil import parser
-
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
 
 numD = 1
 if len(sys.argv) > 1:
@@ -48,5 +50,19 @@ while stop == 0:
     i += 20
 
 
-op = repr([x.encode(sys.stdout.encoding) for x in coupons]).decode('string-escape')
-print op
+body = repr([x.encode(sys.stdout.encoding) for x in coupons]).decode('string-escape')
+print body
+
+fromaddr = "user@163.com"
+toaddr = "user@gmail.com"
+
+msg = MIMEMultipart()
+msg['From'] = fromaddr
+msg['To'] = toaddr
+msg['Subject'] = '今日兑换码'
+msg.attach(MIMEText(body, 'plain'))
+
+server = smtplib.SMTP_SSL('smtp.163.com', 994)
+server.login(fromaddr, 'pass')
+server.sendmail(fromaddr, toaddr, msg.as_string())
+server.quit()

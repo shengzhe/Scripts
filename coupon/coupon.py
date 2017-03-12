@@ -50,7 +50,8 @@ while stop == 0:
     i += 20
 
 
-body = repr([x.encode(sys.stdout.encoding) for x in coupons]).decode('string-escape')
+print coupons
+body = repr([x.encode(sys.stdout.encoding or sys.getdefaultencoding()) for x in coupons]).decode('string-escape')
 print body
 
 fromaddr = "user@163.com"

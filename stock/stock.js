@@ -7,21 +7,27 @@ var key = 'close';
 var url = "http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000001&scale=240&datalen="+totalCount;
 
 request(encodeURI(url), function(error, resp, body) {
+    var msg = "";
     if (!error && resp.statusCode == 200) {
       var str = JSON.stringify(eval('('+body+')'));
       var jsonResponse = JSON.parse(str);
       
       var ratios = processData(jsonResponse);
       if (ratios.length != 2) {
-        console.log("error calculating ratios");
-        return; // cannot continue
+        msg = "240日均线 - error calculating ratios";
+      } else {
+        msg = getAlarm(ratios);
       }
-
-      var msg = getAlarm(ratios);
-      if (msg !== "") {
-        emailMsg(msg);
-      }
-    } 
+    } else {
+      msg = "240日均线 - error retrieving sina data";
+    }
+        
+    if (msg !== "") {
+      console.log(msg);
+      emailMsg(msg);
+    } else {
+      console.log("无恙");
+    }
   });
 
 function processData(data) {

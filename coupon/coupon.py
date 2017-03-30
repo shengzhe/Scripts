@@ -28,24 +28,32 @@ def findCoupon( comment ):
 i = 0
 stop = 0
 while stop == 0:
-    l1 = requests.get('http://api.zhuishushenqi.com/post/by-block?block=ramble&duration=all&sort=created&start='+str(i)+'&limit=20')
-    if l1.status_code == requests.codes.ok:
-        posts = l1.json()['posts']
+    try:
+        l1 = requests.get('http://api.zhuishushenqi.com/post/by-block?block=ramble&duration=all&sort=created&start='+str(i)+'&limit=20')
+    except requests.exceptions.RequestException as e:
+        print e
+    else:
+        if l1.status_code == requests.codes.ok:
+            posts = l1.json()['posts']
 
-        if i == 0:
-            current = parser.parse(posts[0]['created'])
+            if i == 0:
+                current = parser.parse(posts[0]['created'])
 
-        for post in posts:
-            then = parser.parse(post['created'])
-            if then < current - datetime.timedelta(days=numD):
-                stop = 1
-                break
+            for post in posts:
+                then = parser.parse(post['created'])
+                if then < current - datetime.timedelta(days=numD):
+                    stop = 1
+                    break
 
-            l2 = requests.get('http://api.zhuishushenqi.com/post/' + post['_id'] + '/comment?start=0&limit=50')
-            if l2.status_code == requests.codes.ok:
-                comments = l2.json()['comments']
-                for c in comments:
-                    findCoupon( c['content'] )
+                try:
+                    l2 = requests.get('http://api.zhuishushenqi.com/post/' + post['_id'] + '/comment?start=0&limit=50')
+                except requests.exceptions.RequestException as e:
+                    print e
+                else:
+                    if l2.status_code == requests.codes.ok:
+                        comments = l2.json()['comments']
+                        for c in comments:
+                            findCoupon( c['content'] )
 
     i += 20
 

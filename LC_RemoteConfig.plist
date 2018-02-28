@@ -10,10 +10,7 @@
 		<integer>46</integer>
 	</dict>
 	<key>GalleryURLs</key>
-	<dict>
-		<key>KuaiXue</key>
-		<string>http://raw.githubusercontent.com/shengzhe/HandScrollGallery/master/picturescroll_KuaiXue.jpg</string>
-	</dict>
+	<dict/>
 	<key>Host</key>
 	<dict/>
 </dict>

@@ -11,31 +11,31 @@
 	</dict>
 	<key>GalleryURLs</key>
 		<key>BoYuan</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_BoYuan.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_BoYuan.jpg</string>
 		<key>ChiBi</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_ChiBi.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_ChiBi.jpg</string>
 		<key>HanShi</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_HanShi.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_HanShi.jpg</string>
 		<key>HouChiBi</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_HouChiBi.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_HouChiBi.jpg</string>
 		<key>JiZhi</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_JiZhi.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_JiZhi.jpg</string>
 		<key>KuaiXue</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_KuaiXue.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_KuaiXue.jpg</string>
 		<key>LanTing</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_LanTing.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_LanTing.jpg</string>
 		<key>MengDian</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_MengDian.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_MengDian.jpg</string>
 		<key>QianZiWen</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_QianZiWen.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_QianZiWen.jpg</string>
 		<key>ShiTie</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_ShiTie.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_ShiTie.jpg</string>
 		<key>ShuSu</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_ShuSu.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_ShuSu.jpg</string>
 		<key>ZhongQiu</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_ZhongQiu.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_ZhongQiu.jpg</string>
 		<key>ZiXu</key>
-		<string>https://handscrollgallery-1256181689.cos.ap-guangzhou.myqcloud.com/picturescroll_ZiXu.jpg</string>
+		<string>http://111.230.109.80/pic/picturescroll_ZiXu.jpg</string>
 	<dict/>
 	<key>Host</key>
 	<dict/>

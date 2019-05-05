@@ -1,10 +1,37 @@
+var Promise = require('es6-promise').Promise;
 var nodemailer = require('nodemailer');
 var mongodb = require('mongodb');
-var server = new mongodb.Server('localhost',27017,{auto_reconnect:true});
-var db = new mongodb.Db('water',server,{safe:true});
+
+var ip_addr = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
+var port    = process.env.OPENSHIFT_NODEJS_PORT || '8080';
+var connection_string = '127.0.0.1:27017/water';
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+  connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+  process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+  process.env.OPENSHIFT_APP_NAME;
+}
+var MongoClient = require('mongodb').MongoClient;
+
+var db = null;
+var connect = function() {
+  return new Promise(function(resolve,reject){
+    MongoClient.connect('mongodb://'+connection_string, function(err, db2) {
+      if(err) {
+        reject();
+      } else {
+        db = db2;
+        resolve();
+      }
+    });
+  });
+}
+// var server = new mongodb.Server('localhost',27017,{auto_reconnect:true});
+// var db = new mongodb.Db('water',server,{safe:true});
 
 var documentName = 'nowater';
-var globalDococument = null
+var globalDococument = null;
 var transporter = nodemailer.createTransport('smtps://user%40163.com:pass@smtp.163.com');
 var mailOptions = {
   from: 'Water Notifier<user@163.com>',
@@ -16,25 +43,27 @@ var mailOptions = {
 
 var keywords = {
   '雄楚':['user@gmail.com'],
-  '关西':['user@gmail.com']
+  '关西':['user@gmail.com'],
+  '南湖':['user@gmail.com'],
+  '关山大道':['user@gmail.com']
 }
 
 var closeDB = function() {
   db.close();
 }
 
-var openDB = function() {
-  return new Promise(function(resolve,rejct){
-    db.open(function(err,db){
-      if(err) {
-        console.log('db open failed');
-        reject();
-      } else {
-        resolve();
-      }
-    });
-  });
-}
+//var openDB = function() {
+//  return new Promise(function(resolve,rejct){
+//    db.open(function(err,db){
+//      if(err) {
+//        console.log('db open failed');
+//        reject();
+//      } else {
+//        resolve();
+//      }
+//    });
+//  });
+//}
 
 var openDocument = function() {
   return new Promise(function(resolve,reject){
@@ -140,7 +169,7 @@ var markRecords = function() {
 }
 
 Promise.resolve()
-.then(openDB)
+.then(connect)
 .then(openDocument)
 .then(processAllKeywords)
 .then(markRecords)

@@ -10,6 +10,7 @@
 		<integer>46</integer>
 	</dict>
 	<key>GalleryURLs</key>
+	<dict>
 		<key>BoYuan</key>
 		<string>https://dev.tencent.com/u/livecally/p/HandScrollGallery/git/raw/master/picturescroll_BoYuan.jpg</string>
 		<key>ChiBi</key>
@@ -36,8 +37,6 @@
 		<string>https://dev.tencent.com/u/livecally/p/HandScrollGallery/git/raw/master/picturescroll_ZhongQiu.jpg</string>
 		<key>ZiXu</key>
 		<string>https://dev.tencent.com/u/livecally/p/HandScrollGallery/git/raw/master/picturescroll_ZiXu.jpg</string>
-	<dict/>
-	<key>Host</key>
-	<dict/>
+	</dict>
 </dict>
 </plist>
